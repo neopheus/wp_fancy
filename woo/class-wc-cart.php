@@ -110,6 +110,7 @@ if(!class_exists('FPD_Cart')) {
 				$cart_item_meta['fpd_data']['fpd_product'] = $_POST['fpd_product'];
 				$cart_item_meta['fpd_data']['fpd_product_price'] = $_POST['fpd_product_price'];
 				$cart_item_meta['fpd_data']['fpd_remove_cart_item'] = $_POST['fpd_remove_cart_item'];
+                $cart_item_meta['fpd_data']['fpd_product_svg'] = $_POST['fpd_product_svg'];
 
 				if( isset($_POST['fpd_product_thumbnail']) )
 					$cart_item_meta['fpd_data']['fpd_product_thumbnail'] = $_POST['fpd_product_thumbnail'];
