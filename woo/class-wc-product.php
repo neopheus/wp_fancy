@@ -314,6 +314,8 @@ if( !class_exists('FPD_WC_Product') ) {
 
 								$cartForm.find('input[name="fpd_product"]').val(JSON.stringify(order));
 
+                                $cartForm.find('input[name="fpd_product_svg"]').val(fancyProductDesigner.viewInstances[0].toSVG());
+
 								if(<?php echo fpd_get_option('fpd_cart_custom_product_thumbnail'); ?>) {
 									$cartForm.find('input[name="fpd_product_thumbnail"]').val(dataURL);
 								}
@@ -470,6 +472,7 @@ if( !class_exists('FPD_WC_Product') ) {
 				<input type="hidden" value="" name="fpd_product" />
 				<input type="hidden" value="" name="fpd_product_price" />
 				<input type="hidden" value="" name="fpd_product_thumbnail" />
+                <input type="hidden" value="" name="fpd_product_svg" />
 				<input type="hidden" value="<?php echo isset($_GET['cart_item_key']) ? $_GET['cart_item_key'] : ''; ?>" name="fpd_remove_cart_item" />
 				<?php
 
