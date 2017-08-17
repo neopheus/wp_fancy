@@ -5419,10 +5419,7 @@ var FPDToolbar = function($uiElementToolbar, fpdInstance) {
 						$colorPicker.empty().removeClass('fpd-colorpicker-group');
 
 						//path (svg)
-						console.log('-----------------');
-						console.log(element.isSameColor);
-                        console.log('-----------------');
-						if(element.type == 'path-group' && !element.isSameColor) {
+						if(element.type == 'path-group' && !element.isSameColor()) {
 
 							for(var i=0; i<element.paths.length; ++i) {
 								var path = element.paths[i],
@@ -5526,7 +5523,6 @@ var FPDToolbar = function($uiElementToolbar, fpdInstance) {
 
 									$(document).unbind("click.spectrum"); //fix, otherwise change is fired on every click
 									fpdInstance.currentViewInstance.setElementParameters({fill: color.toHexString()}, element);
-
 								}
 							})
 							.on('dragstart.spectrum', function() {
@@ -7918,7 +7914,7 @@ var LayersModule = {
 				if(element.uploadZone) {
 					colorHtml = '<span></span>';
 				}
-				else if(element.type == 'path-group') {
+				else if(element.type == 'path-group' && !element.isSameColor()) {
 					currentColor = availableColors[0];
 					colorHtml = '<span class="fpd-current-color" style="background: '+currentColor+'"></span>';
 				}
@@ -8028,16 +8024,15 @@ var LayersModule = {
 				element._tempFill = color.toHexString();
 			},
 			move: function(color) {
-
 				var element = $(this).parents('.fpd-list-row:first').data('element');
 				//only non-png images are chaning while dragging
 				if(colorDragging === false || FPDUtil.elementIsColorizable(element) !== 'png') {
-					fpdInstance.currentViewInstance.changeColor(element, color.toHexString());
+                    fpdInstance.currentViewInstance.setElementParameters({fill: color.toHexString()}, element);
+					//fpdInstance.currentViewInstance.changeColor(element, color.toHexString());
 				}
 
 			},
 			change: function(color) {
-
 				$(document).unbind("click.spectrum"); //fix, otherwise change is fired on every click
 				var element = $(this).parents('.fpd-list-row:first').data('element');
 				fpdInstance.currentViewInstance.setElementParameters({fill: color.toHexString()}, element);
@@ -8091,7 +8086,7 @@ var LayersModule = {
 				for(var i=0; i < availableColors.length; ++i) {
 
 					var item;
-					if(element.type === 'path-group') {
+					if(element.type === 'path-group' && !element.isSameColor()) {
 
 						item = '<input class="fpd-path-colorpicker" type="text" value="'+availableColors[i]+'" />';
 
@@ -8110,7 +8105,7 @@ var LayersModule = {
 
 				FPDUtil.updateTooltip($listItem);
 
-				if(element.type === 'path-group') {
+				if(element.type === 'path-group' && !element.isSameColor()) {
 
 					$listItem.find('.fpd-path-colorpicker').spectrum({
 						showPaletteOnly: $.isArray(element.colors),
