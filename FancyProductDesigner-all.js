@@ -5419,7 +5419,10 @@ var FPDToolbar = function($uiElementToolbar, fpdInstance) {
 						$colorPicker.empty().removeClass('fpd-colorpicker-group');
 
 						//path (svg)
-						if(element.type == 'path-group') {
+						console.log('-----------------');
+						console.log(element.isSameColor);
+                        console.log('-----------------');
+						if(element.type == 'path-group' && !element.isSameColor) {
 
 							for(var i=0; i<element.paths.length; ++i) {
 								var path = element.paths[i],
