@@ -254,6 +254,8 @@ jQuery(document).ready(function($) {
 	//Colorpicker
 	if($().wpColorPicker) {
 		$('.radykal-color-picker').wpColorPicker({
+			width: 600,
+			palettes: ['#000000','#8e9194','#e0dbd7','#ffffff','#ffbe98','#e8cab8','#f9e2c5','#ffe08f','#f0b56f','#f8a800','#bc5a00','#5e3327','#e13010','#da1a30','#9a0043','#f96c64','#fe7887','#ff96a9','#f2a1c9','#e578b5','#ab57c5','#6720a5','#004f8b','#007ebb','#82a2c8','#6ccfdc','#ccf4ec','#00aeac','#a8c89b','#f5f4a0','#065a42','#68c100','#00a852'],
 			change: function(evt, ui) {
 
 				var $input = $(this);

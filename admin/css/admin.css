@@ -490,7 +490,7 @@
 }
 
 #fpd-elements-form {
-	height: 230px;
+	min-height: 230px;
 	overflow: auto;
 }
 
@@ -1565,4 +1565,17 @@ fpd-wc-order #fpd-order-panel {
 #bulk-variations-table tbody td {
 	font-size: 1em;
 	padding: 12px 0;
+}
+.iris-palette-container{
+	top:460px;
+	width: 460px;
+}
+.iris-palette-container a{
+	height: 20px !important;
+	width: 20px !important;
+	margin: 0 !important;
+}
+
+.iris-border{
+	height: 495px !important;
 }
