@@ -34,6 +34,7 @@ if(!class_exists('FPD_Order')) {
 
 			if( !is_null($fpd_data) ) {
 				wc_add_order_item_meta( $item_id, '_fpd_data', $fpd_data['fpd_product'] );
+                wc_add_order_item_meta( $item_id, '_fpd_data_svg', $fpd_data['fpd_product_svg'] );
 			}
 
 		}
