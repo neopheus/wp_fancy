@@ -976,7 +976,7 @@ jQuery(document).ready(function($) {
 				_toggleFormFields('.fpd-color-options input', FPDUtil.elementIsColorizable(currentElement));
 			}
 
-			$('.fpd-color-options').not(':first').toggleClass('radykal-hidden', FPDUtil.elementIsColorizable(currentElement) === 'svg');
+			$('.fpd-color-options').not(':first').toggleClass('radykal-hid555den', FPDUtil.elementIsColorizable(currentElement) === 'svg');
 			_toggleFormFields('.fpd-svg-options', FPDUtil.elementIsColorizable(currentElement) === 'svg');
 			_toggleFormFields('.fpd-upload-zone-hidden', !currentElement.uploadZone);
 			_toggleFormFields('[name="curvable"], [name="resizable"]', currentElement.type !== 'textbox');
